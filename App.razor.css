@@ -1,0 +1,16 @@
+﻿::deep .default{
+    margin:10px;
+    max-width:500px;
+}
+
+::deep .custam {
+    margin: 10px;
+    margin-top: 30px;
+    max-width: 500px;
+}
+
+::deep .none {
+    margin: 10px;
+    margin-top: 30px;
+    max-width: 500px;
+}

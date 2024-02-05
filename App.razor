@@ -1,0 +1,70 @@
+﻿<div>
+	<div style="margin:10px;max-width:500px;">
+		<p>初期表示</p>
+		<IgbGrid AutoGenerate="false"
+				 Data="personList"
+				 PrimaryKey="@nameof(Person.Id)">
+
+
+			<IgbColumn Field="@nameof(Person.Id)" />
+			<IgbColumn Field="@nameof(Person.name)" />
+			<IgbColumn Field="@nameof(Person.age)" />
+
+		</IgbGrid>
+	</div>
+
+	<div style="margin: 10px;margin-top: 30px;max-width: 500px;">
+		<p>カスタム表示</p>
+
+<IgbGrid AutoGenerate="false"
+			Data="personList"
+			PrimaryKey="@nameof(Person.Id)"
+			EmptyGridMessage="*表示したいデータを登録してください*">
+	@*表示するデータが0件のときに表示されるテキストを
+	"EmptyGridMessage"プロパティより設定いただけます。
+	非表示にしたい場合は空白文字をご指定ください。*@
+
+
+	<IgbColumn Field="@nameof(Person.Id)" />
+	<IgbColumn Field="@nameof(Person.name)" />
+	<IgbColumn Field="@nameof(Person.age)" />
+
+</IgbGrid>
+	</div>
+
+	<div style="margin: 10px;margin-top: 30px;max-width: 500px;">
+		<p>空白表示</p>
+
+		<IgbGrid AutoGenerate="false"
+				 Data="personList"
+				 PrimaryKey="@nameof(Person.Id)"
+				 EmptyGridMessage=" ">
+			@*表示するデータが0件のときに表示されるテキストを
+			"EmptyGridMessage"プロパティより設定いただけます。
+			非表示にしたい場合は空白文字をご指定ください。*@
+
+
+			<IgbColumn Field="@nameof(Person.Id)" />
+			<IgbColumn Field="@nameof(Person.name)" />
+			<IgbColumn Field="@nameof(Person.age)" />
+
+		</IgbGrid>
+	</div>
+
+</div>
+
+@code {
+	public class Person
+	{
+		public int Id { get; set; }
+		public string? name { get; set; }
+		public int age { get; set; }
+	};
+
+	private List<Person> personList = new()
+	{
+		// new(){Id=1,name="Taro",age=25},
+		// new(){Id=1,name="Jiro",age=32},
+		// new(){Id=1,name="Saburo",age=40},
+	};
+}
